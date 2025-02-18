@@ -28,9 +28,9 @@ function Navbar() {
       <div>
         <Link
           to="/cart"
-          className="flex gap-3 items-center  hover:text-green-500"
+          className="flex gap-2 items-center  hover:text-green-500"
         >
-          <FaCartPlus />
+          <FaCartPlus className="text-xl" />
           <h2 className="hover:underline underline-offset-3"> Cart</h2>
         </Link>
       </div>

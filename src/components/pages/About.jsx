@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 function About() {
   return (
     <div className="flex justify-between items-center font-serif leading-relaxed p-30">
-      <div className="text-justify w-250">
-        <h2 className="text-2xl">
+      <div className="text-justify w-200">
+        <h2 className="text-2xl mb-1 ">
           More Than Just a Store - We're Your Partner in clothing
         </h2>
         <p>
@@ -30,7 +30,7 @@ function About() {
         </p>
       </div>
       <div>
-        <img src={picture} className="w-160 h-100" />
+        <img src={picture} className="w-180 h-120" />
       </div>
     </div>
   );
