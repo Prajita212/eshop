@@ -4,11 +4,11 @@ import { Link } from "react-router";
 
 function Navbar() {
   return (
-    <div className="flex p-8 font-semibold justify-between items-center ">
+    <div className="p-4 flex gap-120">
       <div>
-        <FaShopify className="text-3xl" />
+        <FaShopify />
       </div>
-      <div className="flex gap-20">
+      <div className="flex md:gap-20 gap-10">
         <Link to="/">
           <h2 className="hover:underline underline-offset-3 hover:text-green-500">
             Home
@@ -26,12 +26,10 @@ function Navbar() {
         </Link>
       </div>
       <div>
-        <Link
-          to="/cart"
-          className="flex gap-2 items-center  hover:text-green-500"
-        >
-          <FaCartPlus className="text-xl" />
-          <h2 className="hover:underline underline-offset-3"> Cart</h2>
+
+        <Link to='/cart' className="flex gap-3 items-center"> 
+      <FaCartPlus />
+          <h2 className="hover:underline underline-offset-3 hover:text-green-500"> Cart</h2>
         </Link>
       </div>
     </div>

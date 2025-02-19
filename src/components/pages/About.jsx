@@ -3,9 +3,10 @@ import picture from "../../assets/pic.jpg";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 function About() {
   return (
-    <div className="flex justify-between items-center font-serif leading-relaxed p-30">
-      <div className="text-justify w-200">
-        <h2 className="text-2xl mb-1 ">
+    <div className="flex items-center font-serif leading-relaxed p-30">
+      <div>
+        <h2 className="text-2xl">
+          {" "}
           More Than Just a Store - We're Your Partner in clothing
         </h2>
         <p>
@@ -16,7 +17,7 @@ function About() {
           customer service and products that exceed your expectations.
         </p>
 
-        <p className="mt-10">
+        <p className="md:mt-10 mt-3">
           Got questions? We'd love to hear from you! Reach out at:{" "}
           <span className="hover:text-blue-600 hover:underline underline-offset-2 cursor-pointer ">
             eshop@gmail.com
@@ -30,7 +31,7 @@ function About() {
         </p>
       </div>
       <div>
-        <img src={picture} className="w-180 h-120" />
+        <img src={picture} className="h-100 w-300" />
       </div>
     </div>
   );
