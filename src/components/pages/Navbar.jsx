@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 function Navbar() {
   return (
-    <div className="p-4 flex gap-120">
+    <div className=" flex justify-between items-center font-semibold p-8  top-0">
       <div>
         <FaShopify />
       </div>
