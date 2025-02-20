@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import picture5 from "../../assets/pic5.jpg";
 import { MdEmail } from "react-icons/md";
 import {
   FaLock,
@@ -29,11 +30,10 @@ function Login() {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center
-  bg-gradient-to-r from-purple-200 to-purple-300"
-    >
-      <div className=" font-mono bg-amber-50 border rounded-xl border-amber-50 p-10 ">
+    <div className="relative w-full h-auto ">
+      <img src={picture5}/>
+      <div className="absolute inset-0 flex items-center justify-center">
+         <div className=" font-mono bg-amber-50 border rounded-xl border-amber-50 p-10">
         <h2 className="text-3xl font-bold ml-15 mb-15 ">Login</h2>
 
         <form onSubmit={handleLogin}>
@@ -58,7 +58,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {error && <p className="text-red-600">{error}</p>}
           <div className="mt-3 text-sm">
             <Link to="/signup">
               <h2>Forgot your password ? </h2>
@@ -92,6 +92,7 @@ function Login() {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }

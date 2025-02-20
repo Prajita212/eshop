@@ -95,7 +95,7 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {error && <p className="text-red-600">{error}</p>}
           <button
             type="submit"
             className="w-full text-amber-50 bg-gradient-to-r  from-purple-300 to-purple-400 p-0.5 items-center mt-1 border rounded-3xl "
