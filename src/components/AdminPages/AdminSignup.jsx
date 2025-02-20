@@ -46,7 +46,7 @@ function AdminSignup() {
             };
           
   return (
-    <div className="w-full h-140 grid items-center justify-center">
+    <div className="w-full h-140 flex items-center justify-center">
       <div className=" bg-white border rounded-3xl p-5 ">
         <h2 className="text-center text-3xl font-bold mb-7">Sign Up</h2>
         <form onSubmit={handleSignup}>

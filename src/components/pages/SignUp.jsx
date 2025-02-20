@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
-
+import picture5 from "../../assets/pic5.jpg";
 import {
   FaLock,
   FaUser,
@@ -55,14 +55,15 @@ function SignUp() {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center
-    bg-gradient-to-r from-purple-200 to-purple-300"
-    >
-      <div className=" font-mono bg-amber-50 border rounded-xl border-amber-50 p-10 ">
-        <h2 className="text-3xl font-bold ml-14 mb-15 ">Signup</h2>
-
-        <form onSubmit={handleSignup}>
+    <div className="flex items-center justify-center">
+      <img src={picture5} className="fixed w-full h-full top-0 left-0"/>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className=" font-mono bg-white
+             border rounded-xl p-7"
+        ><form onSubmit={handleSignup}>
+        <h2 className="text-center text-3xl font-bold mb-7 ">Signup</h2>
+     
           <label>Username</label>
           <div className="flex items-center gap-1.5 border-b p-1">
             <FaUser className="text-xs text-gray-500" />
@@ -98,12 +99,13 @@ function SignUp() {
           {error && <p className="text-red-600">{error}</p>}
           <button
             type="submit"
-            className="w-full text-amber-50 bg-gradient-to-r  from-purple-300 to-purple-400 p-0.5 items-center mt-1 border rounded-3xl "
+            className="w-50 text-center text-white bg-gradient-to-r  from-purple-300 to-purple-400 p-0.5 mt-7 border rounded-3xl "
           >
             Signup
           </button>
-          <h2 className="text-sm ml-10 mt-1.5">Or Sign Up Using</h2>
-          <div className="flex ml-19 gap-2 mt-1.5 ">
+          <h2 className="text-center text-sm mt-1.5">Or Sign Up Using</h2>
+         <div className="justify-items-center">
+          <div className=" flex gap-2 mt-1.5 ">
             <Link to="https://www.facebook.com">
               <FaFacebook className=" hover:text-blue-800" />
             </Link>
@@ -114,7 +116,9 @@ function SignUp() {
               <FaGoogle className="hover:text-red-500" />
             </Link>
           </div>
+          </div>
         </form>
+        </div>
       </div>
     </div>
   );
