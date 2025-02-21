@@ -3,8 +3,8 @@ import picture from "../../assets/pic2.jpg";
 import picture2 from "../../assets/pic4.jpg";
 function Home() {
   return (
-    <div className="md:flex items-center justify-between p-10 text-center">
-      <div className=" flex flex-col justify-center items-center font-serif md:bg-gray-700 md:text-white md:h-120 w-110  ">
+    <div className="flex flex-col lg:flex-row items-center justify-between p-10 text-center">
+      <div className=" flex flex-col justify-center items-center font-serif md:bg-gray-700 md:text-white w-auto md:h-120 md:w-110  ">
         <h1 className="lg:text-3xl mb-3 font-bold">
           Elevate Your Style with Premium Fashion
         </h1>
@@ -19,11 +19,11 @@ function Home() {
         </div>
       </div>
     
-        <img src={picture2} className="h-120 w-90 " />
+        <img src={picture2} className="h-auto md:h-120 w-90 mt-2 lg:mt-0" />
         
-          <img src={picture} className="h-120 w-90" />
+          <img src={picture} className="h-auto md:h-120 w-90 mt-2 lg:mt-0" />
         
-      <div className="flex flex-col font-serif ">
+      <div className="flex flex-col font-serif  mt-2 lg:mt-0 ">
         <button className="inline-block p-2 text-white bg-gray-700 transform skew-x-[-12deg] hover:bg-black cursor-pointer focus:outline-none">
           DISCOVER EXCITING OFFERS
         </button>

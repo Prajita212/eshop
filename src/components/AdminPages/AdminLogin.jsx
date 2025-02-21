@@ -17,7 +17,7 @@ function AdminLogin() {
         (u) => u.email === email && u.password === password
       );
       if (user) {
-        navigate("/");
+        navigate("/admin-dashboard");
       } else {
         setError("Invalid email or password.");
       }

@@ -10,6 +10,10 @@ import Login from './components/pages/Login.jsx';
 import SignUp from './components/pages/SignUp.jsx';
 import AdminLogin from './components/AdminPages/AdminLogin.jsx';
 import AdminSignup from './components/AdminPages/AdminSignup.jsx';
+import AdminDash from './components/AdminPages/AdminDash.jsx';
+import Add from './components/product/Add.jsx';
+import Update from './components/product/Update.jsx';
+import Delete from './components/product/Delete.jsx';
 function App() {
   return (
     <div>
@@ -23,6 +27,10 @@ function App() {
       <Route path="/signup" element={<SignUp/>}/>
       <Route path="/admin-login" element={<AdminLogin/>}/>
       <Route path="/admin-signup" element={<AdminSignup/>}/>
+      <Route path="/admin-dashboard" element={<AdminDash/>}/>
+      <Route path="/add" element={<Add/>}/>
+      <Route path="/update" element={<Update/>}/>
+      <Route path="/delete" element={<Delete/>}/>
     </Routes>
     <Footer/>
     </div>

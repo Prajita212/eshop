@@ -3,7 +3,7 @@ import picture from "../../assets/pic.jpg";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 function About() {
   return (
-    <div className="lg:flex items-center font-serif leading-relaxed justify-between lg:p-25 p-4">
+    <div className="flex flex-col lg:flex-row items-center font-serif leading-relaxed justify-between lg:p-25 p-4">
     
       <div className="text-justify lg:w-160 md:w-140 w-100">
         <h2 className="lg:text-2xl font-bold ">
