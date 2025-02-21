@@ -44,7 +44,7 @@ const Add = () => {
         newProduct
       );
       console.log(res.data);
-   navigate("product") } catch (error) {
+   navigate("/product") } catch (error) {
       console.error(error);
     }
   };
