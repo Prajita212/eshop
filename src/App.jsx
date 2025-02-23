@@ -14,6 +14,7 @@ import AdminDash from './components/AdminPages/AdminDash.jsx';
 import Add from './components/product/Add.jsx';
 import Update from './components/product/Update.jsx';
 import Delete from './components/product/Delete.jsx';
+import ProductDetail from './components/pages/ProductDetail.jsx';
 function App() {
   return (
     <div>
@@ -31,6 +32,7 @@ function App() {
       <Route path="/add" element={<Add/>}/>
       <Route path="/update" element={<Update/>}/>
       <Route path="/delete" element={<Delete/>}/>
+      <Route path="/product-detail/:product_id" element={<ProductDetail/>}/>
     </Routes>
     <Footer/>
     </div>
