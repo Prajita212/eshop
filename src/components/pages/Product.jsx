@@ -59,9 +59,9 @@ function Product() {
   };
 
   return (
-    <div className="p-10">
+    <div className="md:p-10 p-5">
     
-      <div className="flex md:flex-row flex-col md:gap-8 gap-2 mb-8">
+      <div className=" md:flex grid grid-cols-2 md:gap-8 gap-1 mb-8 ">
         <button
           onClick={() => handleFilter("all")}
           className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
@@ -106,6 +106,7 @@ function Product() {
 
     
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        
         {filteredProducts.map((pro) => (
           <Link
             to={`/product-detail/${pro.id}`} 
@@ -120,6 +121,7 @@ function Product() {
             <div className="text-lg font-semibold">{pro.title}</div>
             <div className="text-gray-700">${pro.price}</div>
             <div className="text-sm text-gray-500">{pro.category}</div>
+            <div><button className="border rounded-xl px-2 bg-gray-700 text-white hover:bg-gray-950 mt-1"onClick={() => addToCart(products)}>Add to cart</button></div>
           </Link>
         ))}
       </div>

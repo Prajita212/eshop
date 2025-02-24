@@ -33,12 +33,12 @@ function Navbar() {
       </div>
       <div>
       <Link to='/cart' className="flex gap-3 items-center"> 
-      <FaCartPlus/>
-          <h2 className="hidden md:hover:underline underline-offset-3 hover:text-green-500"> Cart</h2>
+      <FaCartPlus className="hover:text-green-500"/>
+          <h2 className="md:hover:underline underline-offset-3 hover:text-green-500"> Cart</h2>
         </Link>
         
       </div>
-      <IoReorderThreeOutline className="md:hidden text-2xl  cursor-pointer"
+      <IoReorderThreeOutline className="md:hidden text-2xl cursor-pointer hover:text-green-500"
         onClick={toggleMenu}  />
     </div>
   );

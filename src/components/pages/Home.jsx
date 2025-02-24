@@ -1,6 +1,7 @@
 import React from "react";
 import picture from "../../assets/pic2.jpg";
 import picture2 from "../../assets/pic4.jpg";
+import Footer from "../Footer";
 function Home() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between p-10 text-center">
