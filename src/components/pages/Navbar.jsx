@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaShopify, FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router";
 import { IoReorderThreeOutline } from "react-icons/io5";
+import { CartContext } from "./cart/Contextprovider";
+
 function Navbar() {
+  const{cart}= useContext(CartContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -33,9 +36,8 @@ function Navbar() {
       </div>
       <div>
       <Link to='/cart' className="flex gap-3 items-center"> 
-      <FaCartPlus className="hover:text-green-500"/>
-          <h2 className="md:hover:underline underline-offset-3 hover:text-green-500"> Cart</h2>
-        </Link>
+    <span className="hidden md:flex text-red-400 text-sm">{cart.length}</span><FaCartPlus className="hover:text-green-500"/>
+              </Link>
         
       </div>
       <IoReorderThreeOutline className="md:hidden text-2xl cursor-pointer hover:text-green-500"

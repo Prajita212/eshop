@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ProductDetail() {
   const { product_id } = useParams(); 
@@ -66,6 +66,9 @@ function ProductDetail() {
         <div className="text-lg font-semibold">${product.price}</div>
         <div className="text-sm text-gray-500 mb-4">{product.category}</div>
         <p className="text-gray-600">{product.description}</p>
+        <div> <button className="mr-3 text-blue-700 hover:text-green-600"><Link to="/product">Go back to product</Link></button>
+</div>
+        
       </div>
     </div>
   );
