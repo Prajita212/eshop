@@ -1,25 +1,47 @@
 export const totalItem = (cart) => {
-  return cart.reduce((sum, pro) => sum + pro.quantity, 0);
+  return cart.reduce((sum, item) => sum + item.quantity, 0);
 };
+
 export const totalPrice = (cart) => {
-  return cart.reduce((total, pro) => total + pro.quantity * pro.price, 0);
+  return cart.reduce((total, item) => total + item.quantity * item.price, 0);
 };
+
 const CartReducer = (state, action) => {
   switch (action.type) {
     case "Add":
-      return [...state, action.pro];
-    case "Remove":
-      return state.filter((p) => p.id !== action.id);
+      const existingProductIndex = state.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (existingProductIndex >= 0) {
+        return state.map((item, index) =>
+          index === existingProductIndex
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...state, { ...action.payload, quantity: 1 }];
+      }
+
     case "Increase":
-      const IndexI = state.findIndex((p) => p.id === action.id);
-      state[IndexI].quantity += 1;
-      return [...state];
+      return state.map((item) =>
+        item.id === action.payload && item.quantity < 10
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
     case "Decrease":
-      const IndexD = state.findIndex((p) => p.id === action.id);
-      state[IndexD].quantity -= 1;
-      return [...state];
+      return state.map((item) =>
+        item.id === action.payload && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+
+    case "Remove":
+      return state.filter((item) => item.id !== action.payload);
+
     default:
-      state;
+      return state;
   }
 };
+
 export default CartReducer;

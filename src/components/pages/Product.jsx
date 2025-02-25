@@ -6,7 +6,7 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
-
+  const { dispatch } = useContext(CartContext);
   const normalizeCategory = (category) => {
     return category.toLowerCase().replace(/'/g, "");
   };
@@ -14,16 +14,17 @@ function Product() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fakeStoreResponse = await fetch(
-          "https://fakestoreapi.com/products"
-        );
-        const fakeStoreData = await fakeStoreResponse.json();
+        const [fakeStoreResponse, jsonServerResponse] = await Promise.all([
+          fetch("https://fakestoreapi.com/products"),
+          fetch("http://localhost:3001/products"),
+        ]);
 
-        const jsonServerResponse = await fetch(
-          "http://localhost:3001/products"
-        );
-        const jsonServerData = await jsonServerResponse.json();
+        const [fakeStoreData, jsonServerData] = await Promise.all([
+          fakeStoreResponse.json(),
+          jsonServerResponse.json(),
+        ]);
 
+  
         const normalizedFakeStoreData = fakeStoreData.map((product) => ({
           ...product,
           category: normalizeCategory(product.category),
@@ -34,6 +35,7 @@ function Product() {
           category: normalizeCategory(product.category),
         }));
 
+      
         const combinedData = [
           ...normalizedFakeStoreData,
           ...normalizedJsonServerData,
@@ -61,53 +63,25 @@ function Product() {
     }
   };
 
-  const { dispatch } = useContext(CartContext);
+  const handleAddToCart = (product) => {
+    dispatch({ type: "Add", payload: product });
+  };
 
   return (
     <div className="md:p-10 p-5">
       <div className="md:flex grid grid-cols-2 md:gap-8 gap-1 mb-8">
-        <button
-          onClick={() => handleFilter("all")}
-          className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
-            selectedCategory === "all" ? "bg-gray-900" : ""
-          }`}
-        >
-          All
-        </button>
-        <button
-          onClick={() => handleFilter("men's clothing")}
-          className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
-            selectedCategory === "men's clothing" ? "bg-gray-900" : ""
-          }`}
-        >
-          Men's clothing
-        </button>
-        <button
-          onClick={() => handleFilter("women's clothing")}
-          className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
-            selectedCategory === "women's clothing" ? "bg-gray-900" : ""
-          }`}
-        >
-          Women's clothing
-        </button>
-        <button
-          onClick={() => handleFilter("jewelery")}
-          className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
-            selectedCategory === "jewelery" ? "bg-gray-900" : ""
-          }`}
-        >
-          Jewellery
-        </button>
-        <button
-          onClick={() => handleFilter("electronics")}
-          className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
-            selectedCategory === "electronics" ? "bg-gray-900" : ""
-          }`}
-        >
-          Electronics
-        </button>
+        {["all", "men's clothing", "women's clothing", "jewelery", "electronics"].map((category) => (
+          <button
+            key={category}
+            onClick={() => handleFilter(category)}
+            className={`bg-gray-600 hover:bg-gray-900 border border-gray-400 text-white px-3 py-1 rounded-2xl ${
+              selectedCategory === category ? "bg-gray-900" : ""
+            }`}
+          >
+            {category === "all" ? "All" : category}
+          </button>
+        ))}
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {filteredProducts.map((pro) => (
           <div
@@ -125,8 +99,9 @@ function Product() {
               <div className="text-sm text-gray-500">{pro.category}</div>
             </Link>
             <button
-              className="border rounded-xl px-2 bg-gray-700 text-white hover:bg-gray-950 mt-1"
-              onClick={() => dispatch({ type: "Add", pro: pro })}
+              className="w-30 border rounded-xl px-2 bg-gray-700 text-white hover:bg-gray-950 mt-1"
+              onClick={() => handleAddToCart(pro)}
+              aria-label="Add to Cart"
             >
               Add to cart
             </button>

@@ -1,22 +1,20 @@
 import React, { useContext } from "react";
 import { CartContext } from "./cart/Contextprovider";
-import Product from "./Product";
+
 
 const CartProduct = ({ pro }) => {
-  const { cart, dispatch } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
-  const Increase = (id) => {
-    const Index = cart.findIndex((p) => p.id === id);
-    if (cart[Index].quantity < 10) {
-      dispatch({ type: "Increase", id });
-    }
+  const handleIncrease = () => {
+    dispatch({ type: "Increase", payload: pro.id });
   };
 
-  const Decrease = (id) => {
-    const Index = cart.findIndex((p) => p.id === id);
-    if (cart[Index].quantity > 1) {
-      dispatch({ type: "Decrease", id });
-    }
+  const handleDecrease = () => {
+    dispatch({ type: "Decrease", payload: pro.id });
+  };
+
+  const handleRemove = () => {
+    dispatch({ type: "Remove", payload: pro.id });
   };
 
   return (
@@ -36,24 +34,30 @@ const CartProduct = ({ pro }) => {
         <div className="flex items-center space-x-2 mt-2">
           <button
             className="bg-gray-200 hover:bg-gray-300 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center"
-            onClick={() => Decrease(pro.id)}
+            onClick={handleDecrease}
+            aria-label="Decrease quantity"
           >
             -
           </button>
-          <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center">
+          <button
+            className="bg-gray-200 hover:bg-gray-300 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center"
+            aria-label="Current quantity"
+          >
             {pro.quantity}
           </button>
           <button
             className="bg-gray-200 hover:bg-gray-300 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center"
-            onClick={() => Increase(pro.id)}
+            onClick={handleIncrease}
+            aria-label="Increase quantity"
           >
             +
           </button>
         </div>
 
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full mt-2 transition-colors"
-          onClick={() => dispatch({ type: "Remove", id: pro.id })}
+          className="bg-red-500 hover:bg-red-600 text-white px-2  w-20 rounded-full mt-2 transition-colors"
+          onClick={handleRemove}
+          aria-label="Remove product"
         >
           Remove
         </button>

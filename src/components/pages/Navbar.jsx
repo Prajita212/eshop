@@ -36,7 +36,7 @@ function Navbar() {
       </div>
       <div>
       <Link to='/cart' className="flex gap-3 items-center"> 
-    <span className="hidden md:flex text-red-400 text-sm">{cart.length}</span><FaCartPlus className="hover:text-green-500"/>
+    <span className="flex text-red-400 text-sm">{cart.length}</span><FaCartPlus className="hover:text-green-500"/>
               </Link>
         
       </div>
