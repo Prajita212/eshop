@@ -12,6 +12,8 @@ function Dashboard() {
         <p className="hover:underline underline-offset-3 cursor-pointer"><Link to="/add">Add a Product</Link></p>
         <p className="hover:underline underline-offset-3 cursor-pointer">Update a Product</p>
         <p className="hover:underline underline-offset-3 cursor-pointer">Delete a Product</p>
+        <p className="hover:underline underline-offset-3 cursor-pointer"><Link to="/admin-login">Login</Link></p>
+        
       </div>
     </div>
   );
