@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import picture from "../../assets/pic.jpg";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 function About() {
+  const aboutRef = useRef();
+  const imageRef = useRef();
+  useGSAP(() => {
+    gsap.set(aboutRef.current, {
+      x: "-100vw",
+    });
+    gsap.set(imageRef.current, {
+      x: "100vw",
+    });
+    gsap.to(aboutRef.current, {
+      x: 0,
+      delay: 0.5,
+      duration: 1,
+      ease: "power1.out",
+    });
+    gsap.to(
+      imageRef.current,
+      {
+        x: 0,
+        duration: 1,
+        ease: "power1.out",
+      },
+      "-=1"
+    );
+  });
+
   return (
     <div className="flex flex-col lg:flex-row items-center font-serif leading-relaxed justify-between lg:p-25 p-4">
-    
-      <div className="text-justify lg:w-160 md:w-140 w-100">
+      <div className="text-justify lg:w-160 md:w-140 w-100 " ref={aboutRef}>
         <h2 className="lg:text-2xl font-bold ">
           {" "}
           More Than Just a Store - We're Your Partner in clothing
@@ -31,12 +59,11 @@ function About() {
           </span>
         </p>
       </div>
-      <div>
+      <div ref={imageRef}>
         <img src={picture} className="md:h-100 md:w-140 h-50 w-80 mt-3" />
-        </div>
       </div>
-    
+    </div>
   );
 }
 
-export default About;
+export default About;

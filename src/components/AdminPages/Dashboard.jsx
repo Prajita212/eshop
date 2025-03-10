@@ -10,7 +10,7 @@ function Dashboard() {
       <div>
         <h2 className="text-xl font-semibold mb-3">Admin Panel</h2>
         <p className="hover:underline underline-offset-3 cursor-pointer"><Link to="/add">Add a Product</Link></p>
-        <p className="hover:underline underline-offset-3 cursor-pointer">Update a Product</p>
+        <p className="hover:underline underline-offset-3 cursor-pointer"><Link to='/update'>Update a Product</Link></p>
         <p className="hover:underline underline-offset-3 cursor-pointer">Delete a Product</p>
         <p className="hover:underline underline-offset-3 cursor-pointer"><Link to="/admin-login">Login</Link></p>
         

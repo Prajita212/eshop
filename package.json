@@ -11,6 +11,7 @@
     "json-server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tailwindcss/postcss": "^4.0.6",
     "axios": "^1.7.9",
     "git": "^0.1.5",
