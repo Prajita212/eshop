@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import gsap from "gsap";
 import { FaShopify, FaCartPlus } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Corrected import
+import { Link } from "react-router-dom"; 
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { CartContext } from "./cart/Contextprovider";
 import { useGSAP } from "@gsap/react";
