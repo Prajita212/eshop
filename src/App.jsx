@@ -16,6 +16,7 @@ import Update from './components/product/Update.jsx';
 import Delete from './components/product/Delete.jsx';
 import ProductDetail from './components/pages/ProductDetail.jsx';
 function App() {
+  
   return (
     <div>
       <Header/>

@@ -1,14 +1,27 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import picture from "../../assets/pic2.jpg";
 import picture2 from "../../assets/pic4.jpg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; 
+
 function Home() {
   const divRef = useRef(null);
   const homeRef = useRef(null);
   const shopNowButtonRef = useRef(null);
   const buttonsRef = useRef(null);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://embed.tawk.to/67cfd9984821b71909b51c3c/1im1uk00q";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   useGSAP(() => {
     gsap.set(divRef.current, { x: "-100vw" });
@@ -97,11 +110,11 @@ function Home() {
           aria-label="Shop Now"
           className="mt-2 p-2 text-white bg-gray-700 transform skew-x-[-12deg] hover:bg-black cursor-pointer focus:outline-none hover:scale-105 duration-300 rounded-lg"
         >
-         <Link to="/product"> SHOP NOW</Link>
+          <Link to="/product">SHOP NOW</Link>
         </button>
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Home;
